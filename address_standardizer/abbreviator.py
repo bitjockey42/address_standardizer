@@ -6,4 +6,7 @@ LOOKUP_C2 = read_json(str(DATA_DIR.joinpath("lookup_map_c2.json")))
 
 
 def abbreviate(suffix):
+    if not suffix:
+        raise ValueError("Suffix cannot be empty")
+
     return LOOKUP_C1.get(suffix.upper()) or LOOKUP_C2.get(suffix.upper())
