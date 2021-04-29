@@ -5,7 +5,7 @@ from address_standardizer.abbreviator import abbreviate
 
 
 def standardize(address):
-    def _standardize(part):
+    def standardize_part(part):
         if abbreviate(part) is None:
             return part
         else:
@@ -13,7 +13,7 @@ def standardize(address):
 
     parts = split_parts(address)
 
-    return " ".join(list(map(_standardize, parts)))
+    return " ".join(list(map(standardize_part, parts)))
 
 
 def split_parts(string):
