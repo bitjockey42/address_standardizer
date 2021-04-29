@@ -1,0 +1,10 @@
+{
+    "NORTH": "N",
+    "EAST": "E",
+    "SOUTH": "S",
+    "WEST": "W",
+    "NORTHEAST": "NE",
+    "SOUTHEAST": "SE",
+    "NORTHWEST": "NW",
+    "SOUTHWEST": "SW"
+}

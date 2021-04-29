@@ -4,13 +4,22 @@ import pytest
 from address_standardizer.abbreviator import abbreviate
 
 
-def test_abbreviate():
-    assert abbreviate("alley") == "ALY"
-    assert abbreviate("aPartMent") == "APT"
-    assert abbreviate("SPACE") == "SPC"
-    assert abbreviate("front") == "FRNT"
-    assert abbreviate("California") == "CA"
-    assert abbreviate("illinois") == "IL"
+@pytest.mark.parametrize(
+    "input_string,expected",
+    [
+        ("alley", "ALY"),
+        ("aParTment", "APT"),
+        ("space", "SPC"),
+        ("front", "FRNT"),
+        ("CALIFORNIA", "CA"),
+        ("iLLinOis", "IL"),
+        ("north", "N"),
+        ("East", "E"),
+        ("northeast", "NE"),
+    ],
+)
+def test_abbreviate(input_string, expected):
+    assert abbreviate(input_string) == expected
 
 
 def test_abbreviate_error():
