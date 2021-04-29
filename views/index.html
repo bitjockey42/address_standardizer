@@ -16,6 +16,7 @@
         $('#addresses_form').submit(function(e) {
           e.preventDefault();
           var address1 = $('#address1').val();
+          var address2 = $('#address2').val();
 
           $(".error").remove();
 
@@ -30,6 +31,10 @@
       <div>
           <label for="address1">Address 1</label>
           <input type="text" id="address1" name="address1"></input>
+      </div>
+      <div>
+          <label for="address2">Address 2</label>
+          <input type="text" id="address2" name="address1"></input>
       </div>
       <div>
         <input type="submit" value="Submit" />
