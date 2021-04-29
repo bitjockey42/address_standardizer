@@ -7,6 +7,7 @@ Welcome to Address Standardizer's documentation!
 
    readme
    installation
+   docker
    usage
    modules
    contributing
