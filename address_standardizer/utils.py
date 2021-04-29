@@ -1,5 +1,7 @@
 import csv
 
+from collections import defaultdict
+
 
 def read_csv(filename):
     with open(filename, newline="") as csv_file:
@@ -20,3 +22,13 @@ def process_csv(filename):
             row["standard"] = standard
 
     return rows
+
+
+def generate_standards_map(filename):
+    rows = process_csv(filename)
+    standards_map = defaultdict(list)
+
+    for row in rows:
+        standards_map[row["standard"]].append(row["common"])
+
+    return standards_map
