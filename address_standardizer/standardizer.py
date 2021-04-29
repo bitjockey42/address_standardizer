@@ -8,6 +8,8 @@ from address_standardizer.abbreviator import abbreviate
 
 def standardize(address: str) -> str:
     """Standardize address"""
+    if not address:
+        return ""
 
     def standardize_part(part):
         if abbreviate(part) is None:
