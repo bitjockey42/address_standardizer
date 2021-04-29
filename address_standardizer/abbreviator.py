@@ -9,7 +9,7 @@ LOOKUP_DIRECTIONAL = read_json(str(DATA_DIR.joinpath("lookup_map_directional.jso
 
 def abbreviate(string: str) -> str:
     if not string:
-        raise ValueError("String cannot be empty")
+        return None
 
     lookup_value = string.upper()
 

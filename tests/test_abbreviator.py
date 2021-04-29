@@ -18,12 +18,9 @@ from address_standardizer.abbreviator import abbreviate
         ("East", "E"),
         ("northeast", "NE"),
         ("Not found", None),
+        ("", None),
+        (None, None)
     ],
 )
 def test_abbreviate(input_string, expected):
     assert abbreviate(input_string) == expected
-
-
-def test_abbreviate_error():
-    with pytest.raises(ValueError):
-        abbreviate("")
