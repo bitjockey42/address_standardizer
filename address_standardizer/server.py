@@ -1,10 +1,11 @@
 from bottle import route, run, request, post
 
 
-@post("/hello")
-def hello():
-    name = request.json.get("name")
-    return dict(name=name)
+@post("/standardize")
+def standardize():
+    address1 = request.json.get("address1")
+    address2 = request.json.get("address2")
+    return dict(address1=address1, address2=address2)
 
 
 def start_server(host, port, debug):
