@@ -12,8 +12,8 @@ from address_standardizer.standardizer import standardize
         ("N. Glenview Road", "N GLENVIEW RD"),
         ("room 1", "RM 1ST"),
         ("Atlantic Media", "ATL MEDIA"),
-        ("", None),
-        (None, None),
+        ("", ""),
+        (None, ""),
     ],
 )
 def test_standardize(address, expected):
