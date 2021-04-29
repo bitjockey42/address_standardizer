@@ -5,6 +5,7 @@ import pathlib
 
 from address_standardizer.server import start_server
 from address_standardizer.utils import generate_lookup_map, write_json, PARENT_DIR
+from address_standardizer.settings import HOST, PORT, DEBUG
 
 
 @click.group()
@@ -27,8 +28,8 @@ def update(filename, output_filename):
 
 
 @main.command()
-@click.option("--host", "-h", required=True, default="0.0.0.0")
-@click.option("--port", "-p", required=True, default="8080")
+@click.option("--host", "-h", required=True, default=HOST)
+@click.option("--port", "-p", required=True, default=PORT)
 @click.option("--debug/--no-debug", default=True)
 def server(host, port, debug):
     """Start the server"""
