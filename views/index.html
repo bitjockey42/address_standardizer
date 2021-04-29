@@ -1,12 +1,30 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>I'm a React app!</title>
-  </head>
-  <body>
-    <div id="root"></div>
+<!doctype html>
 
-    <script src="https://unpkg.com/react@16.4.1/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@16.4.1/umd/react-dom.production.min.js"></script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>single page react boilerplate</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="kokaneka">
+</head>
+
+<body>
+  <div id="app"> </div>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script type="text/babel">
+    var App = (props) => {
+            return (
+                <div>
+                    <h1>Bonjour</h1>
+                </div>
+            );
+        };
+        ReactDOM.render(
+            App(),
+            document.getElementById('app')
+        );
+  </script>
+</body>
 </html>
