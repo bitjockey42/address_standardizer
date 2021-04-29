@@ -1,6 +1,7 @@
-from bottle import route, run, request, post, get, view
+from bottle import route, run, request, post, get, static_file
 
 from address_standardizer.standardizer import standardize
+from address_standardizer.utils import PARENT_DIR
 
 
 @post("/api/address")
@@ -11,9 +12,8 @@ def standardize_address():
 
 
 @get("/")
-@view("content")
 def home():
-    return dict(content="Bonjour")
+    return static_file("index.html", root=str(PARENT_DIR.joinpath("views")))
 
 
 def start_server(host, port, debug):
