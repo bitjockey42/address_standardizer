@@ -12,7 +12,7 @@ def read_csv(filename):
 
 def write_json(data, filename):
     with open(filename, "w+") as json_file:
-        json.dump(data, json_file)
+        json.dump(data, json_file, indent=4)
 
 
 def process_csv(filename):
