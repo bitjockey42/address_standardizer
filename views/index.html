@@ -6,6 +6,7 @@
   <title>Address Standardizer</title>
   <meta name="description" content="Standardize addresses">
   <meta name="author" content="bitjockey42">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
 </head>
 
 <body>
@@ -27,18 +28,33 @@
 
       });
   </script>
-  <form id="addresses_form" method="post", action="">
-      <div>
-          <label for="address1">Address 1</label>
-          <input type="text" id="address1" name="address1"></input>
+  <section class="hero is-fullheight is-light">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+            <h1 class="title has-text-centered">Address Sanitizer</h1>
+            <form id="addresses_form" method="post", action="">
+                <div class="field">
+                    <label class="label" for="address1">Address 1</label>
+                    <div class="control">
+                        <input class="input" type="text" id="address1" name="address1"></input>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label" for="address2">Address 2</label>
+                    <div class="control">
+                        <input class="input" type="text" id="address2" name="address2"></input>
+                    </div>
+                </div>
+                <div>
+                    <input type="submit" value="Submit" />
+                </div>
+            </form>
+          </div>
+        </div>
       </div>
-      <div>
-          <label for="address2">Address 2</label>
-          <input type="text" id="address2" name="address1"></input>
-      </div>
-      <div>
-        <input type="submit" value="Submit" />
-      </div>
-  </form>
+    </div>
+  </section>
 </body>
 </html>
