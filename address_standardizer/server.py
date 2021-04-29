@@ -1,4 +1,4 @@
-from bottle import route, run, request, post, get, template
+from bottle import route, run, request, post, get, view
 
 from address_standardizer.standardizer import standardize
 
@@ -11,8 +11,9 @@ def standardize_address():
 
 
 @get("/")
+@view("content")
 def home():
-    return template('Hello {{name}}!', name='World')
+    return dict(content="Bonjour")
 
 
 def start_server(host, port, debug):
