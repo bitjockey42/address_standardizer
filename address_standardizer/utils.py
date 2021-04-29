@@ -5,6 +5,7 @@ import pathlib
 from collections import defaultdict
 
 PARENT_DIR = pathlib.Path(__file__).parent.parent.absolute()
+DATA_DIR = PARENT_DIR.joinpath("data")
 
 
 def read_csv(filename):
