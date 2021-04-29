@@ -16,6 +16,7 @@ from address_standardizer.abbreviator import abbreviate
         ("north", "N"),
         ("East", "E"),
         ("northeast", "NE"),
+        ("Not found", None),
     ],
 )
 def test_abbreviate(input_string, expected):
