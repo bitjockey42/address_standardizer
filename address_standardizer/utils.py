@@ -18,20 +18,17 @@ def write_json(data, filename):
 def process_csv(filename):
     rows = read_csv(filename)
 
-    primary = None
-    standard = None
+    primary = ""
+    standard = ""
 
     for row in rows:
-        if "primary" in row and row.get("primary"):
-            primary = row["primary"]
+        primary = row["primary"] if row.get("primary") else primary
+        standard = row["standard"] if row.get("standard") else standard
 
-        if "standard" in row and row.get("standard"):
-            standard = row["standard"]
-
-        if "primary" in row:
+        if primary:
             row["primary"] = primary
 
-        if "standard" in row:
+        if standard:
             row["standard"] = standard
 
     return rows
