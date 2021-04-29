@@ -5,15 +5,21 @@ from address_standardizer.abbreviator import abbreviate
 
 
 def standardize(address):
-    parts = address.upper().strip().split(" ")
-
-    for i, part in enumerate(parts):
-        # Remove special characters
-        part = re.sub(r"[^a-zA-Z0-9]+", "", part)
-
+    def _standardize(part):
         if abbreviate(part) is None:
-            parts[i] = part
+            return part
         else:
-            parts[i] = abbreviate(part)
+            return abbreviate(part)
 
-    return " ".join(parts)
+    parts = split_parts(address)
+
+    return " ".join(list(map(_standardize, parts)))
+
+
+def split_parts(string):
+    parts = string.upper().strip().split(" ")
+    return list(map(sanitize, parts))
+
+
+def sanitize(string):
+    return re.sub(r"[^a-zA-Z0-9]+", "", string.upper())
