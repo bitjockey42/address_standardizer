@@ -39,6 +39,7 @@ sphinx = "*"
 tox = "*"
 yapf = "*"
 ipython = "^7.22.0"
+pytest-mock = "^3.6.0"
 
 [tool.poetry.scripts]
 address_standardizer = 'address_standardizer.cli:main'
