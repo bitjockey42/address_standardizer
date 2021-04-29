@@ -3,28 +3,69 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>single page react boilerplate</title>
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="kokaneka">
+  <title>Address Standardizer</title>
+  <meta name="description" content="Standardize addresses">
+  <meta name="author" content="bitjockey42">
 </head>
 
 <body>
-  <div id="app"> </div>
-  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-  <script type="text/babel">
-    var App = (props) => {
-            return (
-                <div>
-                    <h1>Bonjour</h1>
-                </div>
-            );
-        };
-        ReactDOM.render(
-            App(),
-            document.getElementById('app')
-        );
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+        $('#first_form').submit(function(e) {
+          e.preventDefault();
+          var first_name = $('#first_name').val();
+          var last_name = $('#last_name').val();
+          var email = $('#email').val();
+          var password = $('#password').val();
+
+          $(".error").remove();
+
+          if (first_name.length < 1) {
+            $('#first_name').after('<span class="error">This field is required</span>');
+          }
+          if (last_name.length < 1) {
+            $('#last_name').after('<span class="error">This field is required</span>');
+          }
+          if (email.length < 1) {
+            $('#email').after('<span class="error">This field is required</span>');
+          } else {
+            var regEx = /^[A-Z0-9][A-Z0-9._%+-]{0,63}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/;
+            var validEmail = regEx.test(email);
+            if (!validEmail) {
+              $('#email').after('<span class="error">Enter a valid email</span>');
+            }
+          }
+          if (password.length < 8) {
+            $('#password').after('<span class="error">Password must be at least 8 characters long</span>');
+          }
+        });
+
+      });
   </script>
+  <h2>Example 1:</h2>
+<form id="first_form" method="post" action="">
+<div>
+    <label for="first_name">First Name:</label>
+    <input type="text" id="first_name" name="first_name"></input>
+</div>
+<div>
+    <label for="last_name">Last Name:</label>
+    <input type="text" id="last_name" name="last_name"></input>
+</div>
+<div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"></input>
+</div>
+<div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password"></input>
+</div>
+<div>
+    <input type="submit" value="Submit" />
+</div>
+</form>
+
 </body>
 </html>
