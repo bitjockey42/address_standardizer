@@ -3,7 +3,7 @@ from bottle import route, run, request, post
 from address_standardizer.standardizer import standardize
 
 
-@post("/address")
+@post("/api/address")
 def standardize_address():
     address1 = request.json.get("address1")
     address2 = request.json.get("address2")
