@@ -25,7 +25,7 @@ def test_generate_standards_map(mocker):
             {"primary": "ALLEY", "standard": "ALY", "common": "ALLEY"},
             {"primary": "ALLEY", "standard": "ALY", "common": "ALLY"},
             {"primary": "ANEX", "standard": "ANX", "common": "ANNEX"},
-        ]
+        ],
     )
     assert utils.generate_standards_map("test.csv") == {
         "ALY": ["ALLEY", "ALLY"],
@@ -40,7 +40,7 @@ def test_generate_lookup_map(mocker):
             {"primary": "ALLEY", "standard": "ALY", "common": "ALLEY"},
             {"primary": "ALLEY", "standard": "ALY", "common": "ALLY"},
             {"primary": "ANEX", "standard": "ANX", "common": "ANNEX"},
-        ]
+        ],
     )
     assert utils.generate_lookup_map("test.csv") == {
         "ALLEY": "ALY",
