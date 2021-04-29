@@ -15,17 +15,25 @@
     $(document).ready(function() {
 
         $('#addresses_form').submit(function(e) {
-          e.preventDefault();
           var address1 = $('#address1').val();
           var address2 = $('#address2').val();
-
-          $(".error").remove();
 
           if (address1.length < 1) {
             $('#address1').after('<span class="error">This field is required</span>');
           }
-        });
 
+          $(".error").remove();
+
+          $.ajax("/api/address", {
+            data: JSON.stringify({ address1: address1, address2: address2 }),
+            method: "POST",
+            contentType: "application/json"
+          }).done(function (data) {
+            console.log(data);
+          });
+
+          event.preventDefault();
+        });
       });
   </script>
   <section class="hero is-fullheight is-light">
