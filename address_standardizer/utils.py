@@ -71,11 +71,10 @@ def generate_standards_map(filename: str) -> Dict:
     return standards_map
 
 
-def generate_lookup_map(filename: str) -> Dict:
-    rows = process_csv(filename)
+def generate_lookup_map(processed_rows: List[Dict]) -> Dict:
     lookup_map = defaultdict(str)
 
-    for row in rows:
+    for row in processed_rows:
         lookup_map[row["common"]] = row["standard"]
 
     return lookup_map

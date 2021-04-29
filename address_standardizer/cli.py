@@ -4,7 +4,13 @@ import click
 import pathlib
 
 from address_standardizer.server import start_server
-from address_standardizer.utils import generate_lookup_map, write_json, PARENT_DIR
+from address_standardizer.utils import (
+    process_csv,
+    process_csv_alt,
+    generate_lookup_map,
+    write_json,
+    PARENT_DIR,
+)
 from address_standardizer.settings import HOST, PORT, DEBUG
 
 
@@ -17,9 +23,15 @@ def main(args=None):
 @main.command()
 @click.argument("filename")
 @click.option("-o", "--output-filename", required=False, default=None)
-def update(filename, output_filename):
+@click.option("-a", "--alt/--no-alt", default=False, help="Use alternate processor")
+def update(filename, output_filename, alt):
     """Generate or update the lookup map"""
-    lookup_map = generate_lookup_map(filename)
+    if alt:
+        processed_rows = process_csv_alt(filename)
+    else:
+        processed_rows = process_csv(filename)
+
+    lookup_map = generate_lookup_map(processed_rows)
 
     if output_filename is None:
         output_filename = str(PARENT_DIR.joinpath("data", "lookup_map.json"))

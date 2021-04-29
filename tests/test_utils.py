@@ -50,16 +50,14 @@ def test_generate_standards_map(mocker):
     }
 
 
-def test_generate_lookup_map(mocker):
-    mocker.patch(
-        "address_standardizer.utils.process_csv",
-        return_value=[
-            {"primary": "ALLEY", "standard": "ALY", "common": "ALLEY"},
-            {"primary": "ALLEY", "standard": "ALY", "common": "ALLY"},
-            {"primary": "ANEX", "standard": "ANX", "common": "ANNEX"},
-        ],
-    )
-    assert utils.generate_lookup_map("test.csv") == {
+def test_generate_lookup_map():
+    processed_rows = [
+        {"primary": "ALLEY", "standard": "ALY", "common": "ALLEY"},
+        {"primary": "ALLEY", "standard": "ALY", "common": "ALLY"},
+        {"primary": "ANEX", "standard": "ANX", "common": "ANNEX"},
+    ]
+
+    assert utils.generate_lookup_map(processed_rows) == {
         "ALLEY": "ALY",
         "ALLY": "ALY",
         "ANNEX": "ANX",
