@@ -13,6 +13,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script type="text/javascript">
     $(document).ready(function() {
+        $("#results").hide();
 
         $('#addresses_form').submit(function(e) {
           var address1 = $('#address1').val();
@@ -30,6 +31,10 @@
             contentType: "application/json"
           }).done(function (data) {
             console.log(data);
+            $("textarea").val(
+                `${data.address1}\n${data.address2}`
+            );
+            $("#results").show();
           });
 
           event.preventDefault();
@@ -41,6 +46,7 @@
       <div class="container">
         <div class="columns is-centered">
           <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+            <div class="box">
             <h1 class="title has-text-centered">Address Sanitizer</h1>
             <form id="addresses_form" method="post", action="">
                 <div class="field">
@@ -56,9 +62,14 @@
                     </div>
                 </div>
                 <div>
-                    <input type="submit" value="Submit" />
+                    <input class="button is-primary" type="submit" value="Submit" />
                 </div>
             </form>
+            </div>
+
+            <div class="card" id="results">
+                <textarea id="standarized" class="textarea"></textarea>
+            </div>
           </div>
         </div>
       </div>
