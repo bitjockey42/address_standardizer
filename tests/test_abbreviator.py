@@ -20,6 +20,9 @@ from address_standardizer.abbreviator import abbreviate
         ("Not found", None),
         ("", None),
         (None, None),
+        ("academic", "ACDMC"),
+        ("Atlantic", "ATL"),
+        ("ALARM", "ALRM"),
     ],
 )
 def test_abbreviate(input_string, expected):
