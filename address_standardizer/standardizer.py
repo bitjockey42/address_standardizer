@@ -3,8 +3,12 @@ from address_standardizer.abbreviator import abbreviate
 
 
 def standardize(address):
-    pass
+    parts = address.upper().strip().split(" ")
 
+    for i, part in enumerate(parts):
+        if abbreviate(part) is None:
+            continue
 
-def sanitize(address):
-    return address.upper().strip()
+        parts[i] = abbreviate(part)
+
+    return " ".join(parts)

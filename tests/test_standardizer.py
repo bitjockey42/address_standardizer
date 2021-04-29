@@ -1,6 +1,14 @@
 """Test standardizer"""
+import pytest
+
 from address_standardizer.standardizer import standardize
 
 
-def test_standardize():
-    pass
+@pytest.mark.parametrize(
+    "address,expected",
+    [
+        ("1234 Main Street", "1234 MAIN ST")
+    ],
+)
+def test_standardize(address, expected):
+    assert standardize(address) == expected

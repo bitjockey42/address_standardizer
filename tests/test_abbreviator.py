@@ -11,6 +11,7 @@ from address_standardizer.abbreviator import abbreviate
         ("aParTment", "APT"),
         ("space", "SPC"),
         ("front", "FRNT"),
+        ("street", "ST"),
         ("CALIFORNIA", "CA"),
         ("iLLinOis", "IL"),
         ("north", "N"),
