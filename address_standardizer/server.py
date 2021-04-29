@@ -1,14 +1,14 @@
 from bottle import route, run, request, post
 
-from address_standardizer.standardizer import standardize as standardize_address
+from address_standardizer.standardizer import standardize
 
 
-@post("/standardize")
-def standardize():
+@post("/address")
+def standardize_address():
     address1 = request.json.get("address1")
     address2 = request.json.get("address2")
     return dict(
-        address1=standardize_address(address1), address2=standardize_address(address2)
+        address1=standardize(address1), address2=standardize(address2)
     )
 
 
