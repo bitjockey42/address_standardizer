@@ -24,7 +24,7 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "*"
+python = ">=3.7"
 click = "*"
 
 [tool.poetry.dev-dependencies]
@@ -38,6 +38,7 @@ pytest = "*"
 sphinx = "*"
 tox = "*"
 yapf = "*"
+ipython = "^7.22.0"
 
 [tool.poetry.scripts]
 address_standardizer = 'address_standardizer.cli:main'
