@@ -46,6 +46,21 @@ def process_csv(filename: str) -> List[Dict]:
     return rows
 
 
+def process_csv_alt(filename: str) -> List[Dict]:
+    """Process CSV where common representations are in one row"""
+    rows = read_csv(filename)
+    processed = []
+
+    for row in rows:
+        commons = row["common"].split("\n ")
+        standard = row["standard"]
+
+        for common in commons:
+            processed.append({"common": common, "standard": standard})
+
+    return processed
+
+
 def generate_standards_map(filename: str) -> Dict:
     rows = process_csv(filename)
     standards_map = defaultdict(list)
