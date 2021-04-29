@@ -9,6 +9,8 @@ def test_abbreviate():
     assert abbreviate("aPartMent") == "APT"
     assert abbreviate("SPACE") == "SPC"
     assert abbreviate("front") == "FRNT"
+    assert abbreviate("California") == "CA"
+    assert abbreviate("illinois") == "IL"
 
 
 def test_abbreviate_error():
