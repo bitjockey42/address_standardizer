@@ -12,8 +12,8 @@ def standardize(address):
         part = re.sub(r"[^a-zA-Z0-9]+", "", part)
 
         if abbreviate(part) is None:
-            continue
-
-        parts[i] = abbreviate(part)
+            parts[i] = part
+        else:
+            parts[i] = abbreviate(part)
 
     return " ".join(parts)
