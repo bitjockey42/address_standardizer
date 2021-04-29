@@ -7,7 +7,7 @@ LOOKUP_STATES = read_json(str(DATA_DIR.joinpath("lookup_map_states.json")))
 LOOKUP_DIRECTIONAL = read_json(str(DATA_DIR.joinpath("lookup_map_directional.json")))
 
 
-def abbreviate(string):
+def abbreviate(string: str) -> str:
     if not string:
         raise ValueError("String cannot be empty")
 
