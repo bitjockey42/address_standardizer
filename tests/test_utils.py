@@ -7,7 +7,7 @@ def test_process_csv(mocker):
         "address_standardizer.utils.read_csv",
         return_value=[
             {"primary": "ALLEY", "standard": "ALY", "common": "ALLEY"},
-            {"primary": "", "standard": "", "common": "ALLY"},
+            {"primary": "", "standard": "", "common": "ally"},
             {"primary": "ANEX", "standard": "ANX", "common": "ANNEX"},
         ],
     )

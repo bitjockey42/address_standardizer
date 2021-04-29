@@ -22,14 +22,16 @@ def process_csv(filename):
     standard = ""
 
     for row in rows:
-        primary = row["primary"] if row.get("primary") else primary
-        standard = row["standard"] if row.get("standard") else standard
+        primary = row["primary"].upper() if row.get("primary") else primary
+        standard = row["standard"].upper() if row.get("standard") else standard
 
         if primary:
             row["primary"] = primary
 
         if standard:
             row["standard"] = standard
+
+        row["common"] = row["common"].upper()
 
     return rows
 
