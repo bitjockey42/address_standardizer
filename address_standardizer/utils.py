@@ -1,7 +1,10 @@
 import csv
 import json
+import pathlib
 
 from collections import defaultdict
+
+PARENT_DIR = pathlib.Path(__file__).parent.parent.absolute()
 
 
 def read_csv(filename):
@@ -13,6 +16,11 @@ def read_csv(filename):
 def write_json(data, filename):
     with open(filename, "w+") as json_file:
         json.dump(data, json_file, indent=4)
+
+
+def read_json(filename):
+    with open(filename) as json_file:
+        return json.load(json_file)
 
 
 def process_csv(filename):

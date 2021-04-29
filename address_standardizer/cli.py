@@ -3,9 +3,7 @@ import sys
 import click
 import pathlib
 
-from address_standardizer.utils import generate_lookup_map, write_json
-
-PARENT_DIR = pathlib.Path(__file__).parent.parent.absolute()
+from address_standardizer.utils import generate_lookup_map, write_json, PARENT_DIR
 
 
 @click.group()
