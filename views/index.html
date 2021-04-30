@@ -26,6 +26,14 @@
           $("#address2").val("");
         });
 
+        $("#copyAddress1").click(function() {
+            console.log("Click 1");
+        });
+
+        $("#address2_value").click(function() {
+            console.log("Click 2");
+        });
+
         $('#addresses_form').submit(function(e) {
           var address1 = $('#address1').val();
           var address2 = $('#address2').val();
@@ -37,8 +45,8 @@
             method: "POST",
             contentType: "application/json"
           }).done(function (data) {
-            $("#address1_value").text(data.address1);
-            $("#address2_value").text(data.address2);
+            $("#address1_value").val(data.address1);
+            $("#address2_value").val(data.address2);
 
             if (data.address1) {
                 $("#address1_result").show();
@@ -85,13 +93,13 @@
             </div>
 
             <div id="address1_result">
-                <p class="is-size-7 is-uppercase">Address 1</p>
-                <button id="address1_value" class="button is-outlined is-large"></button>
-            </div>
-
-            <div id="address2_result">
-                <p class="is-size-7 is-uppercase">Address 2</p>
-                <button id="address2_value" class="button is-outlined is-large"></button>
+                <div class="field">
+                    <label class="label" for="address1_value">Address 1</label>
+                    <div class="control is-medium">
+                      <input id="address1_value" class="input is-medium" type="text">
+                    </div>
+                </div>
+                <button id="copyAddress1" class="button is-outlined is-large">Copy</button>
             </div>
           </div>
         </div>
