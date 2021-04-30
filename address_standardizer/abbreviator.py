@@ -17,7 +17,7 @@ def abbreviate(string: str) -> str:
     return (
         LOOKUP_C1.get(lookup_value)
         or LOOKUP_C2.get(lookup_value)
-        or LOOKUP_STATES.get(lookup_value)
+        # or LOOKUP_STATES.get(lookup_value)
         or LOOKUP_DIRECTIONAL.get(lookup_value)
-        or LOOKUP_BUSINESS.get(lookup_value)
+        # or LOOKUP_BUSINESS.get(lookup_value)
     )
