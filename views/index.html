@@ -18,6 +18,8 @@
 
         $("#address1").val("");
         $("#address2").val("");
+        $("#address1_value").val("");
+        $("#address2_value").val("");
         $("#address1_result").hide();
         $("#address2_result").hide();
 
@@ -92,12 +94,23 @@
                 </form>
             </div>
 
-            <div class="field has-addons">
+            <div id="address1_result" class="field has-addons">
                 <div class="control">
-                  <input id="address1_value" class="input" type="text" placeholder="Address 1">
+                  <input id="address1_value" class="input is-expanded" type="text" placeholder="Address 1">
                 </div>
                 <div class="control">
                   <a id="copyAddress1" class="button is-info">
+                    Copy
+                  </a>
+                </div>
+            </div>
+
+            <div id="address2_result" class="field has-addons">
+                <div class="control">
+                  <input id="address2_value" class="input is-expanded" type="text" placeholder="Address 2">
+                </div>
+                <div class="control">
+                  <a id="copyAddress2" class="button is-info">
                     Copy
                   </a>
                 </div>
