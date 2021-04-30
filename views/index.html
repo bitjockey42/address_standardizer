@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -31,10 +31,8 @@
             method: "POST",
             contentType: "application/json"
           }).done(function (data) {
-            console.log(data);
-            $("textarea").val(
-                `${data.address1}\n${data.address2}`
-            );
+            $("#address1_results").text(data.address1);
+            $("#address2_results").text(data.address2);
             $("#results").show();
           });
 
@@ -48,28 +46,30 @@
         <div class="columns is-centered">
           <div class="column is-5-tablet is-4-desktop is-3-widescreen">
             <div class="box">
-            <h1 class="title has-text-centered">Address Standardizer</h1>
-            <form id="addresses_form" method="post", action="">
-                <div class="field">
-                    <label class="label" for="address1">Address 1</label>
-                    <div class="control">
-                        <input class="input" type="text" id="address1" name="address1"></input>
+                <h1 class="title has-text-centered">Address Standardizer</h1>
+                <form id="addresses_form" method="post", action="">
+                    <div class="field">
+                        <label class="label" for="address1">Address 1</label>
+                        <div class="control">
+                            <input class="input" type="text" id="address1" name="address1"></input>
+                        </div>
                     </div>
-                </div>
-                <div class="field">
-                    <label class="label" for="address2">Address 2</label>
-                    <div class="control">
-                        <input class="input" type="text" id="address2" name="address2"></input>
+                    <div class="field">
+                        <label class="label" for="address2">Address 2</label>
+                        <div class="control">
+                            <input class="input" type="text" id="address2" name="address2"></input>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <input class="button is-primary" type="submit" value="Submit" />
-                </div>
-            </form>
+                    <div>
+                        <input class="button is-primary" type="submit" value="Submit" />
+                    </div>
+                </form>
             </div>
 
-            <div class="card" id="results">
-                <textarea id="standarized" class="textarea"></textarea>
+            <div id="results" class="notification">
+                <button class="delete"></button>
+                <div id="address1_results"></div>
+                <div id="address2_results"></div>
             </div>
           </div>
         </div>
