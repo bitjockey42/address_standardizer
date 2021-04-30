@@ -14,6 +14,8 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script type="text/javascript">
     $(document).ready(function() {
+        var copyText = document.getElementById("#")
+
         $("#address1").val("");
         $("#address2").val("");
         $("#address1_result").hide();
@@ -35,8 +37,8 @@
             method: "POST",
             contentType: "application/json"
           }).done(function (data) {
-            $("#address1_result").text(data.address1);
-            $("#address2_result").text(data.address2);
+            $("#address1_value").text(data.address1);
+            $("#address2_value").text(data.address2);
 
             if (data.address1) {
                 $("#address1_result").show();
@@ -60,8 +62,8 @@
       <div class="container">
         <div class="columns is-centered">
           <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+            <h1 class="title has-text-centered">Address Standardizer</h1>
             <div class="box">
-                <h1 class="title has-text-centered">Address Standardizer</h1>
                 <form id="addresses_form" method="post", action="">
                     <div class="field">
                         <label class="label" for="address1">Address 1</label>
@@ -83,8 +85,12 @@
             </div>
 
             <div id="address1_result" class="notification is-primary">
+                <button class="delete"></button>
+                <div id="address1_value"></div>
             </div>
             <div id="address2_result" class="notification is-info">
+                <button class="delete"></button>
+                <div id="address2_value"></div>
             </div>
 
           </div>
