@@ -29,11 +29,13 @@
         });
 
         $("#copyAddress1").click(function() {
-            console.log("Click 1");
+            $("#address1_value").select();
+            document.execCommand("copy");
         });
 
         $("#copyAddress2").click(function() {
-            console.log("Click 2");
+            $("#address2_value").select();
+            document.execCommand("copy");
         });
 
         $('#addresses_form').submit(function(e) {
