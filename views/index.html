@@ -19,6 +19,11 @@
         $("#address1_result").hide();
         $("#address2_result").hide();
 
+        $("#clear").click(function() {
+          $("#address1").val("");
+          $("#address2").val("");
+        });
+
         $('#addresses_form').submit(function(e) {
           var address1 = $('#address1').val();
           var address2 = $('#address2').val();
@@ -76,7 +81,7 @@
                     </div>
                     <div>
                         <input class="button is-primary" type="submit" value="Submit" />
-                        <button class="button">Clear</button>
+                        <button id="clear" class="button">Clear</button>
                     </div>
                 </form>
             </div>
