@@ -14,7 +14,10 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script type="text/javascript">
     $(document).ready(function() {
-        $("#results").hide();
+        $("#address1").val("");
+        $("#address2").val("");
+        $("#address1_result").hide();
+        $("#address2_result").hide();
 
         $('#addresses_form').submit(function(e) {
           var address1 = $('#address1').val();
@@ -31,9 +34,20 @@
             method: "POST",
             contentType: "application/json"
           }).done(function (data) {
-            $("#address1_results").text(data.address1);
-            $("#address2_results").text(data.address2);
-            $("#results").show();
+            $("#address1_result").text(data.address1);
+            $("#address2_result").text(data.address2);
+
+            if (data.address1) {
+                $("#address1_result").show();
+            } else {
+                $("#address1_result").hide();
+            }
+
+            if (data.address2) {
+                $("#address2_result").show();
+            } else {
+                $("#address2_result").hide();
+            }
           });
 
           event.preventDefault();
@@ -62,15 +76,18 @@
                     </div>
                     <div>
                         <input class="button is-primary" type="submit" value="Submit" />
+                        <button class="button">Clear</button>
                     </div>
                 </form>
             </div>
 
-            <div id="results" class="notification">
+            <div id="address1_result" class="notification is-primary">
                 <button class="delete"></button>
-                <div id="address1_results"></div>
-                <div id="address2_results"></div>
             </div>
+            <div id="address2_result" class="notification is-info">
+                <button class="delete"></button>
+            </div>
+
           </div>
         </div>
       </div>
