@@ -21,3 +21,21 @@ def abbreviate(string: str) -> str:
         or LOOKUP_DIRECTIONAL.get(lookup_value)
         # or LOOKUP_BUSINESS.get(lookup_value)
     )
+
+
+def abbreviate_state(string: str) -> str:
+    if not string:
+        return None
+
+    lookup_value = string.upper()
+
+    return LOOKUP_STATES.get(lookup_value)
+
+
+def abbreviate_business(string: str) -> str:
+    if not string:
+        return None
+
+    lookup_value = string.upper()
+
+    return LOOKUP_BUSINESS.get(lookup_value)
