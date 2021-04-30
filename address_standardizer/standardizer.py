@@ -30,4 +30,4 @@ def split_parts(string: str) -> List[str]:
 
 def sanitize(string: str) -> str:
     """Remove special characters"""
-    return re.sub(r"[^a-zA-Z0-9]+", "", string.upper())
+    return re.sub(r"[^a-zA-Z0-9\/]+", "", string.upper())

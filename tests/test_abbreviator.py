@@ -12,17 +12,12 @@ from address_standardizer.abbreviator import abbreviate
         ("space", "SPC"),
         ("front", "FRNT"),
         ("street", "ST"),
-        ("CALIFORNIA", "CA"),
-        ("iLLinOis", "IL"),
         ("north", "N"),
         ("East", "E"),
         ("northeast", "NE"),
         ("Not found", None),
         ("", None),
         (None, None),
-        ("academic", "ACDMC"),
-        ("Atlantic", "ATL"),
-        ("ALARM", "ALRM"),
     ],
 )
 def test_abbreviate(input_string, expected):
