@@ -18,14 +18,20 @@
 
         $("#address1").val("");
         $("#address2").val("");
+        $("#business").val("");
+
         $("#address1_value").val("");
         $("#address2_value").val("");
+        $("#business_value").val("");
+
         $("#address1_result").hide();
         $("#address2_result").hide();
+        $("#business_result").hide();
 
         $("#clear").click(function() {
           $("#address1").val("");
           $("#address2").val("");
+          $("#business").val("");
         });
 
         $("#copyAddress1").click(function() {
@@ -38,19 +44,26 @@
             document.execCommand("copy");
         });
 
+        $("#copyBusiness").click(function() {
+            $("#business_value").select();
+            document.execCommand("copy");
+        });
+
         $('#addresses_form').submit(function(e) {
           var address1 = $('#address1').val();
           var address2 = $('#address2').val();
+          var business = $('#business').val();
 
           $(".error").remove();
 
           $.ajax("/api/address", {
-            data: JSON.stringify({ address1: address1, address2: address2 }),
+            data: JSON.stringify({ address1: address1, address2: address2, business: business }),
             method: "POST",
             contentType: "application/json"
           }).done(function (data) {
             $("#address1_value").val(data.address1);
             $("#address2_value").val(data.address2);
+            $("#business_value").val(data.business);
 
             if (data.address1) {
                 $("#address1_result").show();
@@ -62,6 +75,12 @@
                 $("#address2_result").show();
             } else {
                 $("#address2_result").hide();
+            }
+
+            if (data.business) {
+                $("#business_result").show();
+            } else {
+                $("#business_result").hide();
             }
           });
 
@@ -89,6 +108,12 @@
                             <input class="input" type="text" id="address2" name="address2"></input>
                         </div>
                     </div>
+                    <div class="field">
+                        <label class="label" for="business">Business</label>
+                        <div class="control">
+                            <input class="input" type="text" id="business" name="business"></input>
+                        </div>
+                    </div>
                     <div>
                         <input class="button is-success" type="submit" value="Submit" />
                         <button id="clear" class="button">Clear</button>
@@ -114,6 +139,17 @@
                     </div>
                     <div class="control">
                         <a id="copyAddress2" class="button is-info">
+                            Copy
+                        </a>
+                    </div>
+                </div>
+
+                <div id="business_result" class="field has-addons">
+                    <div class="control is-expanded">
+                        <input id="business_value" class="input" type="text" placeholder="Business">
+                    </div>
+                    <div class="control">
+                        <a id="copyBusiness" class="button is-info">
                             Copy
                         </a>
                     </div>

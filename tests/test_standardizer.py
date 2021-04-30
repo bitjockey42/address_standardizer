@@ -1,7 +1,7 @@
 """Test standardizer"""
 import pytest
 
-from address_standardizer.standardizer import standardize
+from address_standardizer.standardizer import standardize, standardize_business
 
 
 @pytest.mark.parametrize(
@@ -18,3 +18,15 @@ from address_standardizer.standardizer import standardize
 )
 def test_standardize(address, expected):
     assert standardize(address) == expected
+
+
+@pytest.mark.parametrize(
+    "business,expected",
+    [
+        ("atlantic media", "ATL MEDIA"),
+        ("", ""),
+        (None, ""),
+    ],
+)
+def test_standardize_business(business, expected):
+    assert standardize_business(business) == expected

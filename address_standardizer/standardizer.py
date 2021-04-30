@@ -3,7 +3,7 @@ import re
 
 from typing import List
 
-from address_standardizer.abbreviator import abbreviate
+from address_standardizer.abbreviator import abbreviate, abbreviate_business
 
 
 def standardize(address: str) -> str:
@@ -18,6 +18,22 @@ def standardize(address: str) -> str:
             return abbreviate(part)
 
     parts = split_parts(address)
+
+    return " ".join(list(map(standardize_part, parts)))
+
+
+def standardize_business(business: str) -> str:
+    """Standardize business"""
+    if not business:
+        return ""
+
+    def standardize_part(part):
+        if abbreviate_business(part) is None:
+            return part
+        else:
+            return abbreviate_business(part)
+
+    parts = split_parts(business)
 
     return " ".join(list(map(standardize_part, parts)))
 
