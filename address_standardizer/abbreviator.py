@@ -1,11 +1,11 @@
 """Get abbreviations"""
-from address_standardizer.utils import read_json, DATA_DIR
-
-LOOKUP_C1 = read_json(str(DATA_DIR.joinpath("lookup_map_c1.json")))
-LOOKUP_C2 = read_json(str(DATA_DIR.joinpath("lookup_map_c2.json")))
-LOOKUP_STATES = read_json(str(DATA_DIR.joinpath("lookup_map_states.json")))
-LOOKUP_DIRECTIONAL = read_json(str(DATA_DIR.joinpath("lookup_map_directional.json")))
-LOOKUP_BUSINESS = read_json(str(DATA_DIR.joinpath("lookup_map_business.json")))
+from address_standardizer.constants import (
+    LOOKUP_C1,
+    LOOKUP_C2,
+    LOOKUP_DIRECTIONAL,
+    LOOKUP_STATES,
+    LOOKUP_BUSINESS,
+)
 
 
 def abbreviate(string: str) -> str:
